@@ -1,0 +1,29 @@
+/*
+Prompt: "Given an integer array nums of length n, you want to create an array ans of length 2n where ans[i] == nums[i] and ans[i + n] == nums[i] for 0 <= i < n (0-indexed).
+
+Specifically, ans is the concatenation of two nums arrays.
+
+Return the array ans."
+
+Comment: This is a fairly straightforward prompt. Essentially the array is expanded to twice its size effectively concatenating the same version of the array onto itself.
+I knew immediately this could be solved with nested for loops, but this would be unnecessarily resource intensive so instead I just have a variable called curr which points
+to the current index in the provided array and resets itself once we've reached the end of the original array. This way the duplication can be achieved in a single loop.
+*********************************************************************************************************************************************************************
+*/
+
+var getConcatenation = function(nums) {
+    let len = nums.length;
+    let ans = new Array();
+    let curr = 0;
+    for(let i = 0; i < len*2; i++)
+        {
+            if(curr == len)
+                {
+                    curr = 0;
+                }
+
+                    ans[i] = nums[curr]
+                    curr++;
+        }
+    return ans;
+};
