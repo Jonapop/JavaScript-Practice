@@ -1,0 +1,41 @@
+/*
+Prompt: "Given an integer x, return true if x is palindrome integer.
+
+An integer is a palindrome when it reads the same backward as forward."
+
+Comment: My immediate solution for this was to convert the integer to a string and just compare it front to back in a for loop. I would also have an ongoing counter to
+match every time the two inputs were equal. If the number of times they were equal was equal to the length of the string then we know every instance was a match. Upon 
+finishing this project I was initially disheartened to see there's a way to do it with a single line of code by using a reverse call, but this can be taken as a lesson.
+Sometimes there already exists a function that will do something you thought you needed to do by hand. It's important to understand the capabilities of pre-defined 
+functions to save time and optimize your code.
+*********************************************************************************************************************************************************************
+*/
+
+var isPalindrome = function(x) {
+
+    if(x < 0)
+        {
+            return false;
+        }
+    const inp = x.toString();
+    var s= x.toString().length-1;
+    let a = 0;
+    let b = 0;
+    for(var i = s; i > -1; i--)
+        {
+            if(inp[a] == inp[i])
+                {
+                    b++;
+                }
+            a++;
+        }
+
+if(b == s+1)
+    {
+        return true;
+    }    
+else
+    {
+        return false;
+    }
+};
